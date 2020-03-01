@@ -1,4 +1,7 @@
-
+# This model stores invoices information
+# - uses money_rails to store amounts
+# - has many notifications, recepients, visits and attachments
+# - uses state_machine to switch invoice states
 class Invoice < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :recipients, through: :notifications
