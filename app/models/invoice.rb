@@ -18,6 +18,8 @@ class Invoice < ApplicationRecord
   validates :amount_vat_excluded,
             numericality: { greater_than_or_equal_to: 0.01 }
 
+  accepts_nested_attributes_for :recipients, :attachments
+
   # VAT helper function
   # calculates as diff between amounts with and without VAT
   def vat
