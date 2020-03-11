@@ -24,4 +24,11 @@ RSpec.describe "Invoices", type: :request do
     expect(response).to be_ok
     expect(response.body).to include('hi')
   end
+
+  it 'show' do 
+    invoice = create(:invoice)
+    get "/invoices/#{invoice.id}.json"
+    expect(assigns(:invoice)).to eq invoice
+    expect(response).to be_ok
+  end
 end
