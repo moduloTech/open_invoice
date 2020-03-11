@@ -6,8 +6,8 @@ json.invoice do
   json.amount_vat_excluded_currency @invoice.amount_vat_excluded_currency
   json.amount_vat_included @invoice.amount_vat_included
   json.amount_vat_included_currency @invoice.amount_vat_included_currency
-  json.attachments @invoice.attachments do |attachment|
-    json.original_file attachment.original_file.url
+  json.documents @invoice.documents do |document|
+    json.document url_for(document)
   end
   json.recipients @invoice.recipients do |recipient|
     json.name recipient.name

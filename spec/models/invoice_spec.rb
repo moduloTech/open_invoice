@@ -4,7 +4,6 @@ RSpec.describe Invoice, type: :model do
   it_behaves_like 'factorized model'
   it { is_expected.to have_many :recipients }
   it { is_expected.to have_many :notifications }
-  it { is_expected.to have_many :attachments }
   it 'validates amount' do 
     expect(build(:invoice, amount_vat_included: 2, amount_vat_excluded: 1)).to be_valid
     expect(build(:invoice, amount_vat_included: 2, amount_vat_excluded: 2)).to be_valid

@@ -6,7 +6,7 @@ class Invoice < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :recipients, through: :notifications
   has_many :visits, dependent: :destroy
-  has_many :attachments, dependent: :destroy
+  has_many_attached :documents
   
   monetize :amount_vat_excluded_cents
   monetize :amount_vat_included_cents
@@ -18,7 +18,7 @@ class Invoice < ApplicationRecord
   validates :amount_vat_excluded,
             numericality: { greater_than_or_equal_to: 0.01 }
 
-  accepts_nested_attributes_for :recipients, :attachments
+  accepts_nested_attributes_for :recipients
 
   # VAT helper function
   # calculates as diff between amounts with and without VAT

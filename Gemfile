@@ -54,5 +54,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jwt'
 gem 'money-rails'
-gem 'carrierwave'
 gem 'apipie-rails'

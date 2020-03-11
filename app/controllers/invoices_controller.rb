@@ -7,7 +7,7 @@ class InvoicesController < ApplicationController
   param 'invoice[amount_vat_excluded_currency]', ['EUR', 'USD'], default: 'EUR'
   param 'invoice[amount_vat_included]', Money
   param 'invoice[amount_vat_included_currency]', ['EUR', 'USD'], default: 'EUR'
-  param 'invoice[attachments_attributes][][original_file]', File
+  param 'invoice[documents]', File
   param 'invoice[recipients_attributes][][email]', String
   param 'invoice[recipients_attributes][][name]', String
   def create
@@ -33,9 +33,7 @@ class InvoicesController < ApplicationController
       :amount_vat_excluded_currency,
       :amount_vat_included,
       :amount_vat_included_currency,
-      attachments_attributes: [
-        :original_file
-      ],
+      documents: [],
       recipients_attributes: [
         :name,
         :email
